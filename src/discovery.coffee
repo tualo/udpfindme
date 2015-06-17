@@ -42,7 +42,7 @@ class Discovery extends EventEmitter
       if address == '127.0.0.255'
         address = 'localhost'
       client = new Client @port, address
-      client.on 'found', (data) => @onFound(data)
+      client.on 'found', (data,remote) => @onFound(data,remote)
       client.discover()
       @discover index+1
     else
@@ -57,5 +57,5 @@ class Discovery extends EventEmitter
   onTimeout: () ->
     @emit 'timeout'
 
-  onFound: (data) ->
-    @emit 'found', data
+  onFound: (data,remote) ->
+    @emit 'found', data, remote

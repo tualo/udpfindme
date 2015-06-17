@@ -27,3 +27,17 @@ client.on('found',function(data){
 });
 client.discover();
 ```
+
+If you want to find all running services on all interfaces:
+```
+var Discovery = require('updfindme').Discovery;
+var discovery = new Discovery(1234);
+var serviceList = [];
+discovery.on('found',function(data){
+  serviceList.push(data);
+});
+discovery.on('timeout',function(data){
+  console.log(serviceList);
+});
+discovery.discover();
+```
