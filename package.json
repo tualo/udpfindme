@@ -1,7 +1,7 @@
 {
   "name": "updfindme",
   "description": "upd discovery server and client",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "lib/main.js",
   "licenses": [
     {
