@@ -33,7 +33,7 @@ class Server extends EventEmitter
       if message.getMessage() == 'discover'
         responseMessage = (new Message @message).getBuffer()
         @server.send responseMessage,0, responseMessage.length,rinfo.port,rinfo.address, (err,bytes) ->
-          console.log 'responding',bytes
+          true
 
       @emit 'message', message.getMessage() , rinfo
     else

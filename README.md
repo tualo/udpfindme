@@ -22,5 +22,8 @@ All your clients can search the service with:
 ```
 var Client = require('updfindme').Client;
 var client = new Client(1234);
+client.on('found',function(data){
+  console.log(data);
+});
 client.discover();
 ```

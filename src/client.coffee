@@ -12,10 +12,9 @@ class Client extends EventEmitter
   responseMessage: (msg, remote) ->
     message = new Message msg
     if message.valid()
-      console.log message.getMessage(),remote
+      @emit 'found', JSON.parse(message.getMessage()), remote
 
   onSend: (err,bytes) ->
-    console.log err,bytes,'bytes send'
 
   onListening: () ->
     @client.setBroadcast true
