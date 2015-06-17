@@ -4,7 +4,7 @@
 
 # Usage
 
-On the server side use:
+On the server side set up the message that tells something about your service.
 ```
 var Server = require('updfindme').Server;
 var server = new Server(1234);
@@ -18,7 +18,7 @@ server.on('message',function(msg,remote){
 })
 ```
 
-All your clients can search the service with:
+All your clients can search the service information with:
 ```
 var Client = require('updfindme').Client;
 var client = new Client(1234);

@@ -4,9 +4,10 @@ Message = require './message'
 
 module.exports =
 class Client extends EventEmitter
-  constructor: (port,broadcastAddress) ->
+  constructor: (port,broadcastAddress,timeout) ->
     @broadcastAddress = broadcastAddress || 'localhost'
     @port = port || 32000
+    @timeout = timeout || 2000
     @discoverMessage = new Message "discover"
 
   responseMessage: (msg, remote) ->
@@ -16,11 +17,25 @@ class Client extends EventEmitter
 
   onSend: (err,bytes) ->
 
+  onClose: () ->
+    @emit 'close'
+
   onListening: () ->
     @client.setBroadcast true
     message = @discoverMessage.getBuffer()
+    @client.on 'close', () => @onClose()
     @client.on 'message', (msg, remote) => @responseMessage(msg, remote)
     @client.send message,0,message.length,@port,@broadcastAddress, (err,bytes) => @onSend(err,bytes)
+    @resetTimeout()
+
+  resetTimeout: ()->
+    if @timeout > 0
+      if @timer?
+        clearTimeout @timer
+      @timer = setTimeout @onTimeout.bind(@), @timeout
+
+  onTimeout: ()->
+    @client.close()
 
   discover: () ->
     @client = dgram.createSocket 'udp4'

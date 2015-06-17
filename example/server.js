@@ -1,4 +1,4 @@
-var Server = require('../lib/server');
+var Server = require('..').Server;
 var server = new Server(1234);
 server.setMessage({
   name: 'myservice',
