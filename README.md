@@ -1,6 +1,6 @@
 ## updfindme
 
-`updfindme` is a client and server library for finding other services on a network. There for it uses upd4 broadcast datagrams for find services. All you have to do is to handle on port number for communication.
+`updfindme` is a client and server library for finding other services on a network. There for it uses upd4 broadcast datagrams for find services. All you have to do is to set one port number for communication.
 
 # Usage
 
