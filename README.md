@@ -1,12 +1,12 @@
-## updfindme
+## udpfindme
 
-`updfindme` is a client and server library for finding other services on a network. There for it uses upd4 broadcast datagrams for find services. All you have to do is to set one port number for communication.
+`udpfindme` is a client and server library for finding other services on a network. There for it uses upd4 broadcast datagrams for find services. All you have to do is to set one port number for communication.
 
 # Usage
 
 On the server side set up the message that tells something about your service.
 ```
-var Server = require('updfindme').Server;
+var Server = require('udpfindme').Server;
 var server = new Server(1234);
 server.setMessage({
   name: 'myservice',
@@ -20,7 +20,7 @@ server.on('message',function(msg,remote){
 
 All your clients can search the service information with:
 ```
-var Client = require('updfindme').Client;
+var Client = require('udpfindme').Client;
 var client = new Client(1234);
 client.on('found',function(data){
   console.log(data);
@@ -30,7 +30,7 @@ client.discover();
 
 If you want to find all running services on all interfaces:
 ```
-var Discovery = require('updfindme').Discovery;
+var Discovery = require('udpfindme').Discovery;
 var discovery = new Discovery(1234);
 var serviceList = [];
 discovery.on('found',function(data){

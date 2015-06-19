@@ -1,20 +1,20 @@
 {
-  "name": "updfindme",
-  "description": "upd discovery server and client",
+  "name": "udpfindme",
+  "description": "udp discovery server and client",
   "version": "0.0.2",
   "main": "lib/main.js",
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/tualo/updfindme/LICENSE.md"
+      "url": "https://github.com/tualo/udpfindme/LICENSE.md"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/tualo/updfindme.git"
+    "url": "https://github.com/tualo/udpfindme.git"
   },
   "bugs": {
-    "url": "https://github.com/tualo/updfindme/issues"
+    "url": "https://github.com/tualo/udpfindme/issues"
   },
   "dependencies": {
 
