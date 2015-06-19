@@ -7,7 +7,7 @@ class Server extends EventEmitter
   constructor: (port,address) ->
     @port = port || 32000
     @message = '{ "t" : 1 }'
-    @address = address || '127.0.0.1'
+    @address = address || '0.0.0.0'
     @server = dgram.createSocket 'udp4'
     @server.on 'error', (err) => @onError(err)
     @server.on 'message', (msg, rinfo) => @onMessage(msg, rinfo)
